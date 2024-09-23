@@ -8,8 +8,3 @@ mensagem = f"""
 """    
 
 print(mensagem)
-
-
-
-texto = " Python ".lstrip()
-print(texto)
