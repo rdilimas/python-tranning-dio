@@ -14,9 +14,9 @@ numero_saques = 0
 LIMITE_SAQUES = 3
 
 def imprimir_extrato():
-    print("\n================ EXTRATO ================")
+    print(" EXTRATO".center(41 , "="))
     print("Não foram realizadas movimentações." if not extrato else extrato )
-    print(f"\nSaldo: R$ {saldo:.2f}")
+    print(f"\nSaldo....: R$ {saldo:.2f}")
     print("==========================================")
 
 
