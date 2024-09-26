@@ -4,7 +4,7 @@ linguagens = ["python", "js", "c", "java", "csharp"]
 
 print(linguagens)
 
-#remove da lista e retorna o valor que foi removido.
+#remove da lista e retorna o valor que foi removido. formato de pilha
 print(linguagens.pop())  # csharp
 print(linguagens.pop())  # java
 
