@@ -16,8 +16,18 @@ CLIENTE_JA_CADASTRADO= "\n### Já existe cliente com esse CPF! ###"
 CONTA_CRIADA_SUCESSO = "\n=== Conta criada com sucesso! ==="
 CLIENTE_CRIADO_SUCESS= "=== Cliente criado com sucesso! ==="
 CLIENTE_NAO_CADASTRAD= "\### Usuário não encontrado, fluxo de criação de conta encerrado! ###"
+SAQUE_ADICIONAL = """\n
+                  =========== SAQUE ADICIONAL ===========
+                     Taxa por saque adicional R$ 4,50
+                     Deseja contratar saque adicional?
+                  [s] - Sim
+                  [n] - Não   
+                  => """
 
 
+
+def saque_adicional():
+     return input(textwrap.dedent(SAQUE_ADICIONAL))
 
 
 #recebe os valor por posição : antes da barra
@@ -61,6 +71,18 @@ def sacar(*, saldo, extrato, limite, numero_saques, limite_saques):
 
      elif excedeu_saques:
           print(OPER_FALHOU,NUM_MAX_SAQUE_EXEDID)
+          aceita_taxa_saque = saque_adicional()
+
+          if aceita_taxa_saque == 's':
+              taxa_saque_adicional = 4.50
+              valor += taxa_saque_adicional
+              if valor > saldo:
+                 print(OPER_FALHOU,SALDO_INSUFICIENTE) 
+
+              else:   
+                 saldo -= valor
+                 extrato += f"Saque....: R$ {valor:.2f}\n"
+                 numero_saques += 1
 
      elif valor > 0:
           saldo -= valor
