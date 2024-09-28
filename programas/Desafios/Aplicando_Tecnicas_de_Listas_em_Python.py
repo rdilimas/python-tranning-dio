@@ -1,0 +1,34 @@
+def produto_mais_vendido(produtos):
+    contagem = {}
+    
+    for produto in produtos:
+        if produto in contagem:
+            contagem[produto] += 1
+        else:
+            contagem[produto] = 1
+    
+    max_produto = None
+    max_count = 0
+    
+    for produto, count in contagem.items():
+        # TODO: Encontre o produto com a maior contagem:
+        if count > max_count:
+           max_count = count
+           max_produto = produto
+
+    return max_produto
+
+def obter_entrada_produtos():
+    # Solicita a entrada do usuário em uma única linha
+    entrada = input()
+    # TODO: Converta a entrada em uma lista de strings, removendo espaços extras:
+    entrada_list = [] 
+    entrada_list = entrada.split(',')
+    
+    #split() não funciona setando na propria lista, deve ser aplicado lendo de uma lista e gravando em outra
+    produtos = [produto.strip() for produto in entrada_list]
+
+    return produtos
+
+produtos = obter_entrada_produtos()
+print(produto_mais_vendido(produtos))
